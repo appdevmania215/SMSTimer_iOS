@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HowTosViewController : UIViewController
+@interface HowTosViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *howTosTableView;
 
 @end

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class DemoTextView;
+
 @interface ComposeMessageTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet DemoTextView *tvMessage;
+
+@property(nonatomic, setter = setEditable:) BOOL isEditable;
 
 @end

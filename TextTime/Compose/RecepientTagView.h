@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Contact.h"
 
-@interface RecepientTagView : UIView
+@class RecepientsContainerView;
+
+@interface RecepientTagView : UIView<UIAlertViewDelegate>
+
+@property (assign, nonatomic) CGSize mSize;
+@property (strong, nonatomic) Contact* mContact;
+
+@property (nonatomic, setter = setIndex:) NSInteger mIndex;
+@property (nonatomic, setter = setParent:) RecepientsContainerView *mParentView;
+
+- (CGSize) getSize;
+- (CGSize) setContact:(Contact*)contact;
 
 @end

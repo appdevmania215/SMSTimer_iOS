@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ScheduleTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *lblRecepientName;
+@property (weak, nonatomic) IBOutlet UILabel *lblMessage;
+@property (weak, nonatomic) IBOutlet UILabel *lblRemainingDateTime;
+@property (weak, nonatomic) IBOutlet UILabel *lblReservationDateTime;
 
 @end

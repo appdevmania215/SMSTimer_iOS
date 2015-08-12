@@ -156,7 +156,7 @@
                sqlite3_bind_double(statement, count, [param timeIntervalSince1970]);
             }
             if ([param isKindOfClass:[NSData class]] ) {
-                sqlite3_bind_blob(statement, count, [param bytes], [param length], SQLITE_STATIC);
+                sqlite3_bind_blob(statement, count, [param bytes], (int)[param length], SQLITE_STATIC);
             }
         }
 		
@@ -191,6 +191,29 @@
     }
     
     return (NSInteger)rowid;
+}
+
+- (int)getLastScheduleId{
+    NSError *openError = nil;
+    //Check if database is open and ready.
+	if (db == nil) {
+		openError = [self openDatabase];
+	}
+    
+    sqlite3_stmt *init_statement;
+    NSString *sqlNsStr = [NSString stringWithFormat:@"SELECT * FROM sqlite_sequence where name='schedule'"];
+    const char *sql = [sqlNsStr cStringUsingEncoding:NSUTF8StringEncoding];
+    int lastrec=0;
+    //    if(sqlite3_open([dbPath UTF8String], &masterDB) == SQLITE_OK){
+    if (sqlite3_prepare_v2(db, sql, -1, &init_statement, NULL) == SQLITE_OK) {
+        while(sqlite3_step(init_statement) == SQLITE_ROW) {
+            lastrec = sqlite3_column_int(init_statement, 1);
+        }
+        sqlite3_reset(init_statement);
+    }
+    [self closeDatabase];
+    
+    return lastrec;
 }
 
 /**

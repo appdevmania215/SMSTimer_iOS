@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    NSMutableArray *notificationInfo;
+}
 
+@property (strong, nonatomic) NSMutableArray *notificationInfo;
 @property (strong, nonatomic) UIWindow *window;
+
+- (void) addNotification:(NSDictionary*)info;
 
 @end

@@ -7,8 +7,12 @@
 //
 
 #import "ComposeMessageTableViewCell.h"
+#import "../../Externals/InputField/DemoTextView.h"
 
 @implementation ComposeMessageTableViewCell
+
+@synthesize isEditable;
+@synthesize tvMessage;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,6 +28,15 @@
     // Initialization code
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if ( isEditable == YES ) {
+        [tvMessage setEditable:YES];
+    }
+    else {
+        [tvMessage setEditable:NO];
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

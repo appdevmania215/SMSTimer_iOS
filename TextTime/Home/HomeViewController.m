@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "Constants.h"
 
 @interface HomeViewController ()
 
@@ -35,15 +36,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Button Action
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
+- (IBAction)shareToSocial:(id)sender {
+    NSArray *shareItems = [NSArray arrayWithObject:[NSString stringWithFormat:@"Download this great app at %@", ShareUrl]];
+    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+    [vc.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 @end

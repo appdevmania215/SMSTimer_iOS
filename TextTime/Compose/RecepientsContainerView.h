@@ -8,6 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecepientsContainerView : UIView
+@class Contact;
+@class RecepientTagView;
+@class ComposeViewController;
+
+@interface RecepientsContainerView : UIView {
+    CGFloat nextX;
+    CGFloat nextY;
+    CGFloat nextHeight;
+    CGFloat maxWidth;
+}
+
+@property(nonatomic, setter = setParentViewController:) ComposeViewController *mParentViewController;
+@property(strong, nonatomic) NSMutableArray *recepientsArray;
+@property(nonatomic, setter = setEditable:) BOOL isEditable;
+
+- (CGFloat) addRecepient:(Contact*)contact;
+- (void) deleteRecepient:(RecepientTagView*)tagView;
+- (CGFloat) getSize;
+
+-(void) reloadRecepients;
 
 @end

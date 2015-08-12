@@ -10,4 +10,6 @@
 
 @interface HomeTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *lblContent;
+
 @end

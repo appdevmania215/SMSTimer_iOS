@@ -7,6 +7,7 @@
 //
 
 #import "ComposeActionTableViewCell.h"
+#import "../Constants.h"
 
 @implementation ComposeActionTableViewCell
 
@@ -30,5 +31,18 @@
 
     // Configure the view for the selected state
 }
+
+
+#pragma mark - Button Actions
+
+- (IBAction)editSchedule:(id)sender {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:ComposeEditSchedule object:nil];
+	[self.delegate editScheduleInCell:self];
+}
+- (IBAction)trashSchedule:(id)sender {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:ComposeTrashSchedule object:nil];
+    [self.delegate trashScheduleInCell:self];
+}
+
 
 @end

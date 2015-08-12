@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TextTime.xcodeproj">
+      location = "self:TextTimer.xcodeproj">
    </FileRef>
 </Workspace>

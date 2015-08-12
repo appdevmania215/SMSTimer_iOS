@@ -10,4 +10,13 @@
 
 @implementation ScheduledDBManager
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        // Initialization code
+        [self setState:NO];
+    }
+    return self;
+}
+
 @end

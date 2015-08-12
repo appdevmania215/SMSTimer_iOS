@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ComposeScheduleTimeTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *btnScheduleTimeView;
+@property (weak, nonatomic) IBOutlet UILabel *lblScheduleTime;
+@property (weak, nonatomic) IBOutlet UIImageView *ivTimeIcon;
+@property (weak, nonatomic) IBOutlet UILabel *lblSeparateLine;
+
+@property(nonatomic, setter = setEditable:) BOOL isEditable;
 
 @end

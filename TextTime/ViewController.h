@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class TabView;
+@class ScheduleViewController;
+
 @interface ViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet TabView *tabView;
+@property (weak, nonatomic) IBOutlet UIView *scheduleContainerView;
+@property (strong, nonatomic) ScheduleViewController *scheduleViewController;
 
 @end

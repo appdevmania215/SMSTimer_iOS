@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface ContactUsViewController : UIViewController
+@class DemoTextField;
+@class DemoTextView;
+@class CustomButton;
+
+@interface ContactUsViewController : UIViewController<MFMailComposeViewControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet DemoTextField *tfSubject;
+@property (weak, nonatomic) IBOutlet DemoTextField *tfReplyEmail;
+@property (weak, nonatomic) IBOutlet DemoTextView *tvMessage;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet CustomButton *btnSend;
 
 @end

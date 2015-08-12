@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MHTextField.h"
 
 // Application specific customization.
-@interface DemoTextField : MHTextField
+@interface DemoTextField : UITextField
+
+@property (nonatomic, setter = setRequired:) BOOL required;
+@property (nonatomic, setter = setEmailField:) BOOL isEmailField;
+
+- (BOOL) validate;
+
 
 @end

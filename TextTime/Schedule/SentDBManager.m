@@ -10,4 +10,13 @@
 
 @implementation SentDBManager
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        // Initialization code
+        [self setState:YES];
+    }
+    return self;
+}
+
 @end

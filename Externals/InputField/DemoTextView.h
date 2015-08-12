@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 gmc. All rights reserved.
 //
 
-#import "MHTextView.h"
+#import <Foundation/Foundation.h>
 
-@interface DemoTextView : MHTextView{
-    CGFloat fontSize;
-}
+@interface DemoTextView : UITextView<UITextViewDelegate>
 
+@property (nonatomic, setter = setRequired:) BOOL required;
+
+- (BOOL) validate;
 
 @end

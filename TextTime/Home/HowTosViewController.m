@@ -7,6 +7,7 @@
 //
 
 #import "HowTosViewController.h"
+#import "HomeTableViewCell.h"
 
 @interface HowTosViewController ()
 
@@ -35,15 +36,71 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
+
+#pragma mark -
+#pragma mark Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( [indexPath row] == 0 ) {
+        static NSString *cellIdentifier1 = @"howTosTitleCell";
+        HomeTableViewCell *cell = (HomeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier1];
+        return cell;
+    }
+    else if ( [indexPath row] == 1 ) {
+        static NSString *cellIdentifier2 = @"howTosSubTitleCell";
+        HomeTableViewCell *cell = (HomeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier2];
+        return cell;
+    }
+    else if ( [indexPath row] == 2 ) {
+        static NSString *cellIdentifier3 = @"howTosContentCell";
+        HomeTableViewCell *cell = (HomeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier3];
+        return cell;
+    }
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ( [indexPath row] == 0 ) {
+        return 70.0f;
+    }
+    else {
+        HomeTableViewCell *cell = nil;
+        if ( [indexPath row] == 1 ) {
+            static NSString *cellIdentifier2 = @"howTosSubTitleCell";
+            cell = (HomeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier2];
+        }
+        else if ( [indexPath row] == 2 ) {
+            static NSString *cellIdentifier3 = @"howTosContentCell";
+            cell = (HomeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier3];
+        }
+
+        [cell.contentView layoutSubviews];
+        
+        CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+ 
+        if ( UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+            height = height * (self.view.frame.size.height / self.view.frame.size.width + 0.05);
+        }
+        return height;
+        
+    }
+}
+
 
 @end
